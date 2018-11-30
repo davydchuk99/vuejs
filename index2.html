@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<div id="app">
+    <p>{{name}}</p>
+    <p>{{welcome()}}</p>
+    <p>Name: {{displayName()}}</p>
+    <p>Factorial of 7 is equal to {{factorial(7)}}</p>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{name: 'Vadim', age:19},
+        methods:{
+            welcome: function(){
+                return "Hi";
+            },
+            displayName: function() {
+                return this.name;
+            },
+factorial:function(n){
+                var result=1;
+                for(var i=1; i<=n;i++){
+                    result = result * i;
+                }
+                return result;
+            }
+        }
+    })
+</script>
+</body>
+</html>

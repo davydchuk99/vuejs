@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vue.js</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<div id="app1">
+    <input type="text" v-model="name" />
+    <input type="number" v-model="age" />
+    <p>{{name}} - {{age}}</p>
+</div>
+<div id="app2">
+    <input type="text" v-model="title" />
+    <button v-on:click="onClick">Change</button>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script>
+var vm1 = new Vue({
+el: '#app1',
+    data: {name:'Kate', age: 19},
+    methods: {
+        setName: function(value){
+            this.name = value;
+        }
+    }
+});
+
+vm1.name = "Sam";
+vm1.setName("Mike");
+ 
+var vm2 = new Vue({
+    el: '#app2',
+    data: {title:''},
+    methods: {
+        onClick: function(){
+            vm1.setName(this.title);
+            //vm1.name = this.title;
+        }
+    }
+});
+</script>
+</body>
+</html>
